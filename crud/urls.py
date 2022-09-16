@@ -19,11 +19,31 @@ schema_view = get_schema_view(
    permission_classes=[permissions.AllowAny],
 )
 
+# APIView method urls
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('studentapi/', views.StudentAPI.as_view()),
+#     path('studentapi/<int:pk>/', views.StudentAPI.as_view()),
+#     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
+# ]
+
+
+# GenericAPIView and Model Mixing
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('studentapi/', views.LCStudentList.as_view()),
+#     path('studentapi/<int:pk>/', views.RUDStudentAPI.as_view()),
+    
+# ]
+   
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('studentapi/', views.StudentAPI.as_view()),
-    path('studentapi/<int:pk>', views.StudentAPI.as_view()),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), 
-    name='schema-swagger-ui'),
-
+    path('studentapi/', views.StudentLC.as_view()),
+    path('studentapi/<int:pk>/', views.StudentRUD.as_view()),
+    
 ]
+   
+
+
